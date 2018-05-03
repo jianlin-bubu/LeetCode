@@ -11,4 +11,4 @@ class Solution(object):
                 remainder.pop()
             else:
                 remainder.append(i)
-        return len(remainder) == 0
+        return len(remainder) == 1
