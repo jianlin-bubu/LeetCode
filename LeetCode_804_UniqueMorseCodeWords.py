@@ -27,6 +27,13 @@ class Solution(object):
         #all words to morse
         words_to_morse = map(word_to_morse, words)
         #equivalent: words_to_morse = [word_to_morse(word) for word in words]
+        """
+        #equivalent:
+        l_words = []
+        for  word in words:
+            a = word_to_morse_def(word)
+            l_words.append(a) #equivalent: l += [a]
+        """
         #unique
         return len(set(words_to_morse))
 
