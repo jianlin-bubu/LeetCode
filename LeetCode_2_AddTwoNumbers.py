@@ -1,43 +1,38 @@
-#https://leetcode.com/problems/add-strings/description/
+#https://leetcode.com/submissions/detail/153413398/
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution(object):
-    def addStrings(self, num1, num2):
+    def addTwoNumbers(self, l1, l2):
         """
-        :type num1: str
-        :type num2: str
-        :rtype: str
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
         """
-        IntConverter = lambda x: ord(x) - ord('0')
-
-        num1, num2 = list(map(IntConverter, num1[::-1])), list(map(IntConverter, num2[::-1]))
-
-        if len(num1) < len(num2):
-            num1, num2 = num2, num1
-
         carry = 0
-        final_result = []
-        for i in range(len(num1)):
-            if i < len(num2):
-                n = num2[i]
-            else:
-                n = 0
-            tmp = n + num1[i] + carry
+        result = []
+        while l1 != None and l2 != None:
+            tmp = l1.val + l2.val + carry
             carry = tmp // 10
-            final_result.append(tmp % 10)
-        print final_result
-
-        if carry:
-            final_result.append(1)
-        return ''.join(str(x) for x in final_result[::-1])
-        #equivalent: return ''.join(map(str, final_result[::-1]))
-
-
-
-
-
-
-
-
-
-
-
-
+            result.append(tmp % 10)
+            l1 = l1.next
+            l2 = l2.next
+        while l1 == None and l2 != None:
+            tmp = l2.val + carry
+            carry = tmp // 10
+            result.append(tmp % 10)
+            l2 = l2.next
+        while l1 != None and l2 == None:
+            tmp = l1.val + carry
+            carry = tmp // 10
+            result.append(tmp % 10)
+            l1 = l1.next
+        if l1 == None and l2 == None:
+            if carry != 0:
+                result.append(1)
+        return result
+            
+            
