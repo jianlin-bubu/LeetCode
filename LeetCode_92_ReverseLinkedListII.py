@@ -16,7 +16,7 @@ class Solution(object):
         # 空或者仅仅一个节点或者不需要翻转
         if head == None or head.next == None or m == n:
             return head
-        
+
         # 当m==1，即需要从第一个节点开始翻转
         if m == 1:
             count = 0
@@ -30,8 +30,8 @@ class Solution(object):
                 cur = nex
             head.next = cur
             return pre
-                
-        # 当m>1,需要把原来的linked list 切成三段再合并    
+
+        # 当m>1,需要把原来的linked list 切成三段再合并
         cur = head
         dummy = ListNode(None)
         pre = dummy
@@ -48,7 +48,7 @@ class Solution(object):
                 third_part = nex
             else:
                 cur = cur.next
-        #reverse second party
+        # 调转要求的部分
         cur = second_part
         pre = None
         while cur:
@@ -56,12 +56,12 @@ class Solution(object):
             cur.next = pre
             pre = cur
             cur = nex
-        
+        # 重新组合
         first_part_end.next = pre
         second_part.next = third_part
         return head
-    
-        
-        
 
-        
+
+
+
+
