@@ -33,8 +33,6 @@ class Solution(object):
 
         # 当m>1,需要把原来的linked list 切成三段再合并
         cur = head
-        dummy = ListNode(None)
-        pre = dummy
         count = 0
         while cur:
             count += 1
