@@ -18,10 +18,10 @@ class Solution(object):
             return head
         
         # 当m==1，即需要从第一个节点开始翻转
-        count = 0
-        cur = head
-        pre = None
         if m == 1:
+            count = 0
+            cur = head
+            pre = None
             while cur and count < n:
                 count += 1
                 nex = cur.next
