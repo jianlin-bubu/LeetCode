@@ -1,3 +1,3 @@
 # LeetCode
-repo for leetcode practice
-name format: LeetCode_<ID>_<Name>
+Yeah! I am learning to code! Leetcode makes my happy:)
+
